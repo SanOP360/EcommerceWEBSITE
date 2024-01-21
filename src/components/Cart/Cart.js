@@ -1,45 +1,25 @@
+// Cart.js
+// Cart.js
 import Modal from "../UI/Modal";
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import classes from "./Cart.module.css";
-
-const defaultItems = [
-  {
-    id: 1,
-    title: "Colors",
-    price: 100,
-  },
-  {
-    id: 2,
-    title: "Black and white Colors",
-    price: 50,
-  },
-  {
-    id: 3,
-    title: "Yellow and Black Colors",
-    price: 70,
-  },
-  {
-    id: 4,
-    title: "Blue Color",
-    price: 100,
-  },
-];
+import CartContext from "../store/CartContext";
 
 const Cart = (props) => {
-  const [items, setItems] = useState(defaultItems);
+  const cartCtx = useContext(CartContext);
 
   const handleRemoveItem = (itemId) => {
-    const updatedItems = items.filter((item) => item.id !== itemId);
-    setItems(updatedItems);
+    cartCtx.removeItem(itemId);
   };
 
   const cartItem = () => (
     <ul className={classes["cart-item"]}>
-      {items.map((item) => (
+      {cartCtx.items.map((item) => (
         <li key={item.id}>
           <span>{item.title}</span>
           <span>Rs {item.price}</span>
+          <span>Quantity: {item.quantity}</span>
           <span>
             <Button variant="danger" onClick={() => handleRemoveItem(item.id)}>
               Remove
@@ -50,12 +30,17 @@ const Cart = (props) => {
     </ul>
   );
 
+  const totalAmount = cartCtx.items.reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+    
   return (
     <Modal onClose={props.onClose}>
       {cartItem()}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>Rs 2000</span>
+        <span>Rs {totalAmount}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button-alt"]} onClick={props.onClose}>

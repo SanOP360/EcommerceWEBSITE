@@ -1,0 +1,24 @@
+.badgeQuan{
+
+    background-color: black;
+    color:white;
+    padding:0 5px;
+    height: 100%;
+    font-size: 1.5rem;
+    margin:0 0.5rem;
+    border-radius: 3px; 
+    align-items: center;
+    font-weight: bold;
+    
+}
+
+.CartName{
+    font-size: 1.2rem;
+    margin:0
+}
+
+.CartBadge{
+    padding:0;
+    display: flex;
+    align-items: center;
+}

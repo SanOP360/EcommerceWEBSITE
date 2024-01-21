@@ -1,11 +1,9 @@
 import Modal from "../UI/Modal";
-import React from "react";
+import React, { useState } from "react";
+import { Button } from "react-bootstrap";
 import classes from "./Cart.module.css";
 
-
-
-
-const Items = [
+const defaultItems = [
   {
     id: 1,
     title: "Colors",
@@ -28,21 +26,33 @@ const Items = [
   },
 ];
 
-const cartItem = () => (
-  <ul className={classes["cart-item"]}>
-    {Items.map((item) => (
-      <li key={item.id}>
-        <span>{item.title}</span>
-        <span>Rs {item.price}</span>
-      </li>
-    ))}
-  </ul>
-);
-
 const Cart = (props) => {
+  const [items, setItems] = useState(defaultItems);
+
+  const handleRemoveItem = (itemId) => {
+    const updatedItems = items.filter((item) => item.id !== itemId);
+    setItems(updatedItems);
+  };
+
+  const cartItem = () => (
+    <ul className={classes["cart-item"]}>
+      {items.map((item) => (
+        <li key={item.id}>
+          <span>{item.title}</span>
+          <span>Rs {item.price}</span>
+          <span>
+            <Button variant="danger" onClick={() => handleRemoveItem(item.id)}>
+              Remove
+            </Button>
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+
   return (
-    <Modal onClick={props.onClose}>
-      {cartItem()} 
+    <Modal onClose={props.onClose}>
+      {cartItem()}
       <div className={classes.total}>
         <span>Total Amount</span>
         <span>Rs 2000</span>

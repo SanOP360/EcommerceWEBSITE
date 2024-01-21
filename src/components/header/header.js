@@ -1,8 +1,9 @@
+// Header.js
 import React from "react";
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Button } from "react-bootstrap";
 
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Navbar expand="lg" className="bg-dark">
       <Container>
@@ -12,7 +13,7 @@ const Header = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0" />
         <Navbar.Collapse
           id="basic-navbar-nav"
-          className="justify-content-center"
+          className="justify-content-between"
         >
           <Nav className="me-auto">
             <Nav.Link href="#home" className="text-light">
@@ -25,8 +26,12 @@ const Header = () => {
               About
             </Nav.Link>
           </Nav>
+          <Nav>
+            <Button onClick={props.onShowCart}className="text-light">Cart</Button>
+          </Nav>
         </Navbar.Collapse>
       </Container>
+      
     </Navbar>
   );
 };

@@ -1,0 +1,48 @@
+/* Add this styling to your Item component or import a separate stylesheet */
+
+/* Add this styling to your Item component or import a separate stylesheet */
+
+.card {
+  height: 400px; /* Set a fixed height for the cards */
+  width: 100%; /* Make cards take full width of the container */
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-img-top {
+  flex-grow: 1; /* Make the image take remaining space */
+  max-height: 100%; /* Set maximum height to maintain aspect ratio */
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-text {
+  color: #555;
+}
+
+.container {
+  padding: 20px;
+}
+
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}

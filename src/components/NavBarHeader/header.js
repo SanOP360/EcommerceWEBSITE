@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
-import CartContext from "../store/CartContext";
+// import { NavLink } from "react-router-dom";
+import CartContext from "../Context/CartContext";
 import "./header.css";
 
 const Header = (props) => {
@@ -10,6 +10,8 @@ const Header = (props) => {
     (total, item) => total + item.quantity,
     0
   );
+  
+  console.log("onShowCart:", props.onShowCart);
 
   return (
     <header className="bg-dark">
@@ -18,30 +20,17 @@ const Header = (props) => {
         <nav className="navbar">
           <ul className="nav-list">
             <li className="nav-item">
-              <NavLink
-                to="/"
-                className="nav-link"
-                activeClassName="active-link"
-                exact
-              >
-                Home
-              </NavLink>
+              <a href="/Home">Home</a>
             </li>
             <li className="nav-item">
-              <NavLink
-                to="/About"
-                className="nav-link"
-                activeClassName="active-link"
-              >
-                About
-              </NavLink>
+              <a href="/Store">Store</a>
+            </li>
+            <li className="nav-item">
+              <a href="/About">About</a>
             </li>
           </ul>
           <div className="nav-cart">
-            <button
-              onClick={props.onShowCart}
-              className="cartBtn"
-            >
+            <button onClick={props.onShowCart} className="cartBtn">
               <div className="CartBadge">
                 <span className="CartName">Cart</span>
                 <span className="badgeQuan">{totalQuantity}</span>

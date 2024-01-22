@@ -57,6 +57,10 @@
     box-shadow: 0 1px 3px 1px rgba(128, 125, 125,100);
 }
 
+.active-linl{
+    text-decoration: underline;
+    color:white
+}
 .badgeQuan {
     background-color: #333;
     color: white;

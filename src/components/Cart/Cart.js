@@ -1,9 +1,8 @@
-
 import Modal from "../UI/Modal";
 import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import classes from "./Cart.module.css";
-import CartContext from "../store/CartContext";
+import CartContext from "../Context/CartContext";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -11,6 +10,8 @@ const Cart = (props) => {
   const handleRemoveItem = (itemId) => {
     cartCtx.removeItem(itemId);
   };
+
+  console.log("cart is rendering");
 
   const cartItem = () => (
     <ul className={classes["cart-item"]}>
@@ -33,7 +34,7 @@ const Cart = (props) => {
     (total, item) => total + item.price * item.quantity,
     0
   );
-    
+
   return (
     <Modal onClose={props.onClose}>
       {cartItem()}

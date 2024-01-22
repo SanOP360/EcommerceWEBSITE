@@ -1,16 +1,17 @@
 import { Outlet } from "react-router-dom";
 
-import Header from "../header/header";
+import Header from "../NavBarHeader/header";
 
+const RootLayout = () => {
+  return (
+    <>
+      <Header />
 
-const RootLayout=()=>{
-    return(<>
-        <Header/>
-
-        <main>
-            <Outlet/>
-        </main>
-    </>)
-}
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
+};
 
 export default RootLayout;

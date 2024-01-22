@@ -38,10 +38,7 @@ const Header = (props) => {
             </li>
           </ul>
           <div className="nav-cart">
-            <button
-              onClick={props.onShowCart}
-              className="cartBtn"
-            >
+            <button onClick={props.onShowCart} className="cartBtn">
               <div className="CartBadge">
                 <span className="CartName">Cart</span>
                 <span className="badgeQuan">{totalQuantity}</span>

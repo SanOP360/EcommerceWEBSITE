@@ -1,5 +1,4 @@
-// Cart.js
-// Cart.js
+
 import Modal from "../UI/Modal";
 import React, { useContext } from "react";
 import { Button } from "react-bootstrap";

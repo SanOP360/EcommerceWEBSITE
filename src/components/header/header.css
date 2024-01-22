@@ -1,24 +1,78 @@
-.badgeQuan{
+.bg-dark {
+    background-color: #333;
+    display: flex;
+    margin: 0;
+    padding: 10px 0;
+}
 
-    background-color: black;
-    color:white;
-    padding:0 5px;
-    height: 100%;
-    font-size: 1.5rem;
-    margin:0 0.5rem;
-    border-radius: 3px; 
+.container {
+    color: white;
+    display: flex;
     align-items: center;
-    font-weight: bold;
+    justify-content: space-between;
+}
+
+.brandName {
+    color: white;
+    font-size: 2.5rem;
+    flex: 1;
+}
+
+.navbar {
+    flex: 4;
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 20px;
+    list-style: none;
+    font-size: 1.5rem;
     
 }
 
-.CartName{
-    font-size: 1.2rem;
-    margin:0
+.nav-item a{
+    text-decoration: none;
 }
 
-.CartBadge{
-    padding:0;
+.cartBtn {
+    background-color: #007bff;
+    color: white;
+    align-items: center;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    text-decoration: none; 
+    box-shadow: 0 3px 5px 3px rgba(128, 125, 125,100);
+}
+
+.cartBtn:hover {
+    background-color: #0056b3;
+    color: #ccc;
+    box-shadow: none;
+    box-shadow: 0 1px 3px 1px rgba(128, 125, 125,100);
+}
+
+.badgeQuan {
+    background-color: #333;
+    color: white;
+    padding: 2px 8px;
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.CartName {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.CartBadge {
     display: flex;
     align-items: center;
 }

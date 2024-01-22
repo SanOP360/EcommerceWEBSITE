@@ -4,6 +4,7 @@ import React, { createContext, useState } from 'react';
 const CartContext = createContext();
 
 export const Provider = (props) => {
+  console.log('Provider props:',props)
   const [items, setItems] = useState([]);
 
   const addCart = (item) => {

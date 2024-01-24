@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-// import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import "./header.css";
+// import { Link } from "react-router-dom";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
@@ -20,13 +21,24 @@ const Header = (props) => {
         <nav className="navbar">
           <ul className="nav-list">
             <li className="nav-item">
-              <a href="/Home">Home</a>
+              <NavLink activeClassName="active" to="/Home">
+                Home
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a href="/Store">Store</a>
+              <NavLink activeClassName="active" to="/Store">
+                Store
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a href="/About">About</a>
+              <NavLink activeClassName="active" to="/About">
+                About
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink activeClassName="active" to="/Contact">
+                Contact Us
+              </NavLink>
             </li>
           </ul>
           <div className="nav-cart">

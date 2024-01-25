@@ -3,6 +3,10 @@ import { Button } from "react-bootstrap";
 import CartContext from "../Context/CartContext";
 import './Store.css';
 import { Link } from "react-router-dom";
+import WhiteHeadphone from '../assets/WhiteHeadphone.jpeg';
+import BlueHeadphone from '../assets/BlueHeadphone.jpeg';
+import BlackSpeaker from '../assets/BlackSpeaker.jpg';
+import wirelessEarphone from '../assets/wirelessEarphone.webp';
 
 const Item = () => {
   const CartCtx = useContext(CartContext);
@@ -10,31 +14,31 @@ const Item = () => {
   const productsArr = [
     {
       id: 1,
-      title: "Colors",
-      price: 100,
+      title: "Boat Rockerzz 500",
+      price: 2000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+        WhiteHeadphone,
     },
     {
       id: 2,
-      title: "Black and white Colors",
-      price: 50,
+      title: "Samsung Headphones",
+      price: 3000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
+        BlueHeadphone,
     },
     {
       id: 3,
-      title: "Yellow and Black Colors",
-      price: 70,
+      title: "JBL Loud 790",
+      price: 3000,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
+        BlackSpeaker,
     },
     {
       id: 4,
-      title: "Blue Color",
-      price: 100,
+      title: "Boat air 150",
+      price: 1499,
       imageUrl:
-        "https://prasadyash2411.github.io/ecom-website/img/Album%204.png",
+        wirelessEarphone,
     },
   ];
 

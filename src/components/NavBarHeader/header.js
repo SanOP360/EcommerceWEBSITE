@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import "./header.css";
-// import { Link } from "react-router-dom";
+
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
@@ -21,7 +21,7 @@ const Header = (props) => {
         <nav className="navbar">
           <ul className="nav-list">
             <li className="nav-item">
-              <NavLink activeClassName="active" to="/Home">
+              <NavLink activeClassName="active" to="">
                 Home
               </NavLink>
             </li>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import CartContext from "../Context/CartContext";
 import './Store.css';
+import { Link } from "react-router-dom";
 
 const Item = () => {
   const CartCtx = useContext(CartContext);
@@ -47,11 +48,14 @@ const Item = () => {
         {productsArr.map((product) => (
           <div key={product.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div className="card">
-              <img
-                src={product.imageUrl}
-                className="card-img-top"
-                alt={product.title}
-              />
+              
+              <Link to={`/store/${product.id}`}>
+                <img
+                  src={product.imageUrl}
+                  className="card-img-top"
+                  alt={product.title}
+                />
+              </Link>
               <div className="card-body">
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text">Price: ${product.price}</p>

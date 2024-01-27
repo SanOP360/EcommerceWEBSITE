@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import {  Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Header from "./components/NavBarHeader/header";
 import Item from "./components/Products/ProductItems";
 import AuthContext from "./components/Context/AuthContext";
@@ -16,8 +16,9 @@ import ProductDetail from "./components/Products/ProductDetail";
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
-  const authCtx=useContext(AuthContext);
-  const isLoggedIn=authCtx.isLoggedIn;
+  const authCtx = useContext(AuthContext);
+  const isLoggedIn = authCtx.isLoggedIn;
+  console.log(isLoggedIn);
 
   const showCartHandler = () => {
     setIsVisible(true);
@@ -36,10 +37,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/Home" element={<Home />} />
-          {isLoggedIn && <Route path="/Store" element={<Item />} exact />}
-          {isLoggedIn && (
-            <Route path="/Store/:productId" element={<ProductDetail />} />
-          )}
+
+          { <Route path="/Store" element={<Item />} exact />}
+
+          <Route path="/Store/:productId" element={<ProductDetail />} />
+
           <Route path="/About" element={<About />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/auth" element={<AuthForm />} />

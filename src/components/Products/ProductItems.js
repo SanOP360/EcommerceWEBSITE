@@ -1,44 +1,50 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { Button } from "react-bootstrap";
 import CartContext from "../Context/CartContext";
-import './Store.css';
-import { Link } from "react-router-dom";
-import WhiteHeadphone from '../assets/WhiteHeadphone.jpeg';
-import BlueHeadphone from '../assets/BlueHeadphone.jpeg';
-import BlackSpeaker from '../assets/BlackSpeaker.jpg';
-import wirelessEarphone from '../assets/wirelessEarphone.webp';
+import AuthContext from "../Context/AuthContext";
+import { Link, useNavigate } from "react-router-dom";
+import WhiteHeadphone from "../assets/WhiteHeadphone.jpeg";
+import BlueHeadphone from "../assets/BlueHeadphone.jpeg";
+import BlackSpeaker from "../assets/BlackSpeaker.jpg";
+import wirelessEarphone from "../assets/wirelessEarphone.webp";
 
 const Item = () => {
   const CartCtx = useContext(CartContext);
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    
+    if (!authCtx.isLoggedIn) {
+     
+      navigate("/auth");
+    }
+  }, [authCtx.isLoggedIn, navigate]);
 
   const productsArr = [
     {
       id: 1,
       title: "Boat Rockerzz 500",
       price: 2000,
-      imageUrl:
-        WhiteHeadphone,
+      imageUrl: WhiteHeadphone,
     },
     {
       id: 2,
       title: "Samsung Headphones",
       price: 3000,
-      imageUrl:
-        BlueHeadphone,
+      imageUrl: BlueHeadphone,
     },
     {
       id: 3,
       title: "JBL Loud 790",
       price: 3000,
-      imageUrl:
-        BlackSpeaker,
+      imageUrl: BlackSpeaker,
     },
     {
       id: 4,
       title: "Boat air 150",
       price: 1499,
-      imageUrl:
-        wirelessEarphone,
+      imageUrl: wirelessEarphone,
     },
   ];
 
@@ -52,7 +58,6 @@ const Item = () => {
         {productsArr.map((product) => (
           <div key={product.id} className="col-lg-3 col-md-4 col-sm-6 mb-4">
             <div className="card">
-              
               <Link to={`/store/${product.id}`}>
                 <img
                   src={product.imageUrl}

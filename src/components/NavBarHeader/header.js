@@ -7,9 +7,11 @@ import AuthContext from "../Context/AuthContext";
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
-  const authCtx=useContext(AuthContext)
+  const authCtx=useContext(AuthContext);
+  const nav=useNavigate();
  const logoutHandler = () => {
    authCtx.logout();
+  nav('/auth');
  };
  const isLoggedIn = authCtx.isLoggedIn;
 

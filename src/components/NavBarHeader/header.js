@@ -1,11 +1,22 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink ,useNavigate} from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import "./header.css";
+import AuthContext from "../Context/AuthContext";
 
 
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
+  const authCtx=useContext(AuthContext)
+ const logoutHandler = () => {
+   authCtx.logout();
+ };
+ const isLoggedIn = authCtx.isLoggedIn;
+
+  const navigate=useNavigate();
+  const loginHandler=()=>{
+    navigate('/auth');
+  }
 
   const totalQuantity = cartCtx.items.reduce(
     (total, item) => total + item.quantity,
@@ -41,6 +52,11 @@ const Header = (props) => {
               </NavLink>
             </li>
           </ul>
+
+          <div className="loginLogout">
+            {!isLoggedIn && <button onClick={loginHandler}>Login</button>}
+            {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
+          </div>
           <div className="nav-cart">
             <button onClick={props.onShowCart} className="cartBtn">
               <div className="CartBadge">

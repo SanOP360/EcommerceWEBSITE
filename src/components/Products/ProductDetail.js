@@ -101,11 +101,11 @@ const ProductDetail = () => {
 
       <div className="product-details">
         <h1 className="product-title">{currentProduct.title}</h1>
-        <h1 className="review-title"> ----Product Reviews</h1>
+        <h1 className="review-title"> Product Reviews</h1>
 
         {currentProduct.reviews.map((review) => (
           
-            <p className="image-review">{review}</p>
+            <p className="image-review">----{review}</p>
         ))}
       </div>
     </div>

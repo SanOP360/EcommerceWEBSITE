@@ -17,7 +17,7 @@ const Contact = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    // Validation: Check if any field is empty
+    
     if (
       formData.name.trim() === "" ||
       formData.email.trim() === "" ||
@@ -46,7 +46,6 @@ const Contact = () => {
       const data = await response.json();
       console.log("Data successfully submitted:", data);
 
-      // Clear the form and error after successful submission
       setFormData({
         name: "",
         email: "",
@@ -60,7 +59,7 @@ const Contact = () => {
   };
 
   return (
-    <>
+    <div className="formComp">
       <h1 className="ContactHead">
         For Contacting us, Submit the following form
       </h1>
@@ -100,7 +99,7 @@ const Contact = () => {
           Contact Now
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

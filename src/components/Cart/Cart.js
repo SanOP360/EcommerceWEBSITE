@@ -7,21 +7,24 @@ import CartContext from "../Context/CartContext";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
-  const handleRemoveItem = (itemId) => {
-    cartCtx.removeItem(itemId);
-  };
+
+  let totAmount=0;
+  const productsArr=cartCtx.items;
+   productsArr.forEach((item) => {
+     totAmount += item.quantity * item.price;
+   });
 
   console.log("cart is rendering");
 
   const cartItem = () => (
     <ul className={classes["cart-item"]}>
       {cartCtx.items.map((item) => (
-        <li key={item.id}>
+        <li key={item.title}>
           <span>{item.title}</span>
           <span>Rs {item.price}</span>
           <span>Quantity: {item.quantity}</span>
           <span>
-            <Button variant="danger" onClick={() => handleRemoveItem(item.id)}>
+            <Button variant="danger" onClick={() => cartCtx.removeItem(item._id)}>
               Remove
             </Button>
           </span>
@@ -30,17 +33,13 @@ const Cart = (props) => {
     </ul>
   );
 
-  const totalAmount = cartCtx.items.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
 
   return (
     <Modal onClose={props.onClose}>
       {cartItem()}
       <div className={classes.total}>
         <span>Total Amount</span>
-        <span>Rs {totalAmount}</span>
+        <span>Rs {totAmount}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes["button-alt"]} onClick={props.onClose}>

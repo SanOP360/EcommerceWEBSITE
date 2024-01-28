@@ -36,6 +36,7 @@ const Item = () => {
               title={item.title}
               imageUrl={item.imageUrl}
               price={item.price}
+              id={item.id}
             />
           </div>
         ))}

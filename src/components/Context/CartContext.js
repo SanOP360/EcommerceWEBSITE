@@ -16,7 +16,9 @@ export const Provider = (props) => {
 
   const getItem=async()=>{
     try{
-      const response = await axios.get(`https://crudcrud.com/api/c9173769128d4e18b275992864a036a6/${useremail}`);
+      const response = await axios.get(
+        `https://crudcrud.com/api/669a646f965844a1a5a6e7e4d48a1565/${useremail}`
+      );
 
       updatedItems(response.data)
     }
@@ -40,11 +42,13 @@ export const Provider = (props) => {
     else{
       updatedItems([]);
     }
+
+    
   },[isLoggedIn])
 
   const addItemHandler = async (item) => {
     const updatedItemsArray = [...items];
-    let url = `https://crudcrud.com/api/c9173769128d4e18b275992864a036a6/${useremail}`;
+    let url = `https://crudcrud.com/api/669a646f965844a1a5a6e7e4d48a1565/${useremail}`;
 
     // Check if an item with the same title already exists in the cart
     const existingItemIndex = updatedItemsArray.findIndex(
@@ -93,7 +97,7 @@ export const Provider = (props) => {
     try {
      
       await axios.delete(
-        `https://crudcrud.com/api/c9173769128d4e18b275992864a036a6/${useremail}/${id}`
+        `https://crudcrud.com/api/669a646f965844a1a5a6e7e4d48a1565/${useremail}/${id}`
       );
 
      

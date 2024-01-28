@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,lazy,Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/NavBarHeader/header";
 import Item from "./components/Products/ProductItems";
@@ -6,13 +6,15 @@ import AuthContext from "./components/Context/AuthContext";
 import Home from "./components/Home/Home";
 import Cart from "./components/Cart/Cart";
 import { Provider } from "./components/Context/CartContext";
-import About from "./components/About/About";
+// import About from "./components/About/About";
 import Footer from "./components/UI/footer";
 import Contact from "./components/Contact/Contact";
 import AuthForm from "./components/AuthForm/AuthForm";
 import { AuthProvider } from "./components/Context/AuthContext";
 
 import ProductDetail from "./components/Products/ProductDetail";
+
+const About = lazy(() => import("./components/About/About"));
 
 function App() {
   const [isVisible, setIsVisible] = useState(false);
@@ -38,11 +40,18 @@ function App() {
           <Route path="/" element={<Home />}></Route>
           <Route path="/Home" element={<Home />} />
 
-          { <Route path="/Store" element={<Item />} exact />}
+          {<Route path="/Store" element={<Item />} exact />}
 
           <Route path="/Store/:productId" element={<ProductDetail />} />
 
-          <Route path="/About" element={<About />} />
+          <Route
+            path="/About"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <About />
+              </Suspense>
+            }
+          />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/auth" element={<AuthForm />} />
         </Routes>

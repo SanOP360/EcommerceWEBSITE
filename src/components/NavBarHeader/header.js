@@ -1,31 +1,30 @@
 import React, { useContext } from "react";
-import { NavLink ,useNavigate} from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import CartContext from "../Context/CartContext";
 import "./header.css";
 import AuthContext from "../Context/AuthContext";
 
-
 const Header = (props) => {
   const cartCtx = useContext(CartContext);
-  const authCtx=useContext(AuthContext);
-  const nav=useNavigate();
- const logoutHandler = () => {
-   authCtx.logout();
-  nav('/auth');
- };
- const isLoggedIn = authCtx.isLoggedIn;
+  const authCtx = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const navigate=useNavigate();
-  const loginHandler=()=>{
-    navigate('/auth');
-  }
+  const logoutHandler = () => {
+    authCtx.logout();
+    navigate("/auth");
+  };
 
-  const totalQuantity = cartCtx.items.reduce(
+  const isLoggedIn = authCtx.isLoggedIn();
+
+  const loginHandler = () => {
+    navigate("/auth");
+  };
+
+
+  const totalQuantity = Object.values(cartCtx.items).reduce(
     (total, item) => total + item.quantity,
     0
   );
-  
-  console.log("onShowCart:", props.onShowCart);
 
   return (
     <header className="bg-dark">
@@ -33,16 +32,20 @@ const Header = (props) => {
         <span className="brandName">GENERIC</span>
         <nav className="navbar">
           <ul className="nav-list">
-            <li className="nav-item">
-              <NavLink activeClassName="active" to="">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink activeClassName="active" to="/Store">
-                Store
-              </NavLink>
-            </li>
+            {isLoggedIn && (
+              <li className="nav-item">
+                <NavLink activeClassName="active" to="">
+                  Home
+                </NavLink>
+              </li>
+            )}
+            {isLoggedIn && (
+              <li className="nav-item">
+                <NavLink activeClassName="active" to="/Store">
+                  Store
+                </NavLink>
+              </li>
+            )}
             <li className="nav-item">
               <NavLink activeClassName="active" to="/About">
                 About
@@ -50,22 +53,26 @@ const Header = (props) => {
             </li>
             <li className="nav-item">
               <NavLink activeClassName="active" to="/Contact">
-                Contact Us
+                Contact
               </NavLink>
             </li>
           </ul>
-
-          <div className="loginLogout">
-            {!isLoggedIn && <button onClick={loginHandler}>Login</button>}
-            {isLoggedIn && <button onClick={logoutHandler}>Logout</button>}
-          </div>
-          <div className="nav-cart">
-            <button onClick={props.onShowCart} className="cartBtn">
-              <div className="CartBadge">
-                <span className="CartName">Cart</span>
-                <span className="badgeQuan">{totalQuantity}</span>
-              </div>
-            </button>
+          <div className="manBtns">
+            <div className="loginLogout">
+              {isLoggedIn ? (
+                <button onClick={logoutHandler}>Logout</button>
+              ) : (
+                <button onClick={loginHandler}>Login</button>
+              )}
+            </div>
+           { isLoggedIn && <div className="nav-cart">
+              <button onClick={props.onShowCart} className="cartBtn">
+                <div className="CartBadge">
+                  <span className="CartName">Cart</span>
+                  <span className="badgeQuan">{totalQuantity}</span>
+                </div>
+              </button>
+            </div>}
           </div>
         </nav>
       </div>

@@ -7,24 +7,29 @@ import CartContext from "../Context/CartContext";
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
+  let totAmount = 0;
+  const productsArr = Object.values(cartCtx.items); // Convert object to array
 
-  let totAmount=0;
-  const productsArr=cartCtx.items;
-   productsArr.forEach((item) => {
-     totAmount += item.quantity * item.price;
-   });
+  productsArr.forEach((item) => {
+    totAmount += item.quantity * item.price;
+  });
 
-  console.log("cart is rendering");
+  const removeItemHandler = (itemId) => {
+    cartCtx.removeItem(itemId);
+  };
 
   const cartItem = () => (
     <ul className={classes["cart-item"]}>
-      {cartCtx.items.map((item) => (
-        <li key={item.title}>
+      {productsArr.map((item) => (
+        <li key={item._id}>
           <span>{item.title}</span>
           <span>Rs {item.price}</span>
           <span>Quantity: {item.quantity}</span>
           <span>
-            <Button variant="danger" onClick={() => cartCtx.removeItem(item._id)}>
+            <Button
+              variant="danger"
+              onClick={() => removeItemHandler(item._id)} // Pass itemId to removeItemHandler
+            >
               Remove
             </Button>
           </span>
@@ -32,7 +37,6 @@ const Cart = (props) => {
       ))}
     </ul>
   );
-
 
   return (
     <Modal onClose={props.onClose}>

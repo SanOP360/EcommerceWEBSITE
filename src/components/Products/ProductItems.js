@@ -1,6 +1,4 @@
 import React, { useContext,useEffect } from "react";
-// import { Button } from "react-bootstrap";
-// import CartContext from "../Context/CartContext";
 import AuthContext from "../Context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +6,7 @@ import productsArr from "./ProductArr";
 import ProductDisplay from "./ProductDisplay";
 
 const Item = () => {
-  // const CartCtx = useContext(CartContext);
+
   const authCtx = useContext(AuthContext);
   const navigate = useNavigate();
 

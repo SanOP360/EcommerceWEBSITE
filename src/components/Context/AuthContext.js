@@ -1,43 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
-const AuthContext = React.createContext({
-  
+const AuthContext = createContext({
   token: null,
-  email:'',
-  isLoggedIn: false,
+  email: "",
+  isLoggedIn: () => false, 
   login: (token) => {},
   logout: () => {},
 });
 
 export const AuthProvider = (props) => {
   const initialToken = localStorage.getItem("token");
-  
   const [token, setToken] = useState(initialToken);
-  const userIsLoggedIn = !!token;
+
   const initialEndpoint = localStorage.getItem("endpoint");
   const [endpoint, setEndpoint] = useState(initialEndpoint);
 
+  const isLoggedIn = () => {
+    return !!token; 
+  };
 
-  const loginHandler = (newToken,endpoint) => {
-    
-    
+  const loginHandler = (newToken, endpoint) => {
     localStorage.setItem("token", newToken);
     setToken(newToken);
 
     localStorage.setItem("endpoint", endpoint);
     setEndpoint(endpoint);
-   
   };
 
   const logoutHandler = () => {
     setToken(null);
     localStorage.removeItem("token");
-   
+    
   };
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      
       logoutHandler();
     }
 
@@ -52,8 +49,8 @@ export const AuthProvider = (props) => {
 
   const contextValue = {
     token: token,
-    email:endpoint,
-    isLoggedIn: userIsLoggedIn,
+    email: endpoint,
+    isLoggedIn: isLoggedIn, 
     logout: logoutHandler,
     login: loginHandler,
   };

@@ -1,17 +1,15 @@
-import React, { useContext, useState,lazy,Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import React, { useContext, useState, lazy, Suspense } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Header from "./components/NavBarHeader/header";
 import Item from "./components/Products/ProductItems";
 import AuthContext from "./components/Context/AuthContext";
 import Home from "./components/Home/Home";
 import Cart from "./components/Cart/Cart";
 import { Provider } from "./components/Context/CartContext";
-// import About from "./components/About/About";
 import Footer from "./components/UI/footer";
 import Contact from "./components/Contact/Contact";
 import AuthForm from "./components/AuthForm/AuthForm";
 import { AuthProvider } from "./components/Context/AuthContext";
-
 import ProductDetail from "./components/Products/ProductDetail";
 
 const About = lazy(() => import("./components/About/About"));
@@ -20,7 +18,6 @@ function App() {
   const [isVisible, setIsVisible] = useState(false);
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
-  console.log(isLoggedIn);
 
   const showCartHandler = () => {
     setIsVisible(true);
@@ -37,13 +34,16 @@ function App() {
         {isVisible && <Cart onClose={hideCartHandler} />}
         <Header onShowCart={showCartHandler} />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
+          <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
-
-          {<Route path="/Store" element={<Item />} exact />}
-
-          <Route path="/Store/:productId" element={<ProductDetail />} />
-
+          {isLoggedIn ? (
+            <>
+              <Route path="/Store" element={<Item />} exact />
+              <Route path="/Store/:productId" element={<ProductDetail />} />
+            </>
+          ) : (
+            <Navigate to="/auth" />
+          )}
           <Route
             path="/About"
             element={

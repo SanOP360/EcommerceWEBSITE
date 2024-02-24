@@ -37,6 +37,8 @@
   padding: 0.25rem;
 }
 
+
+
 .actions {
   margin-top: 1.5rem;
   display: flex;
@@ -44,7 +46,7 @@
   align-items: center;
 }
 
-.actions button {
+.loginLogout {
   cursor: pointer;
   font: inherit;
   color: white;
@@ -52,9 +54,11 @@
   border: 1px solid rgb(32, 32, 109);
   border-radius: 4px;
   padding: 0.5rem 2.5rem;
+  box-shadow: 0 3px 2px 3px rgba(0, 0, 0, 0.6);
+
 }
 
-.actions button:hover {
+.loginLogout:hover {
   background-color: rgb(33, 33, 165);
   border-color:rgb(31, 31, 131);
 }
@@ -72,5 +76,33 @@
   color:rgb(31, 31, 131);;
 }
 
+.signBtn{
+    color:white;
+    /* background-color: rgb(80, 234, 182); */
+    font-size: 1.2rem;
+    margin:1rem;
+    background-color:transparent;
+    cursor:pointer;
+    border-radius: 5px;
+    box-shadow: 0 3px 2px 3px rgba(0, 0, 0, 0.6);
+}
 
+.signBtn:hover{
+    color:rgba(245, 245, 245, 0.849)
+    
+}
 
+.forgotPassBtn{
+   color:rgb(243, 123, 123);
+
+    background-color:transparent;
+    cursor:pointer;
+    border-radius: 5px;
+    box-shadow: 0 3px 2px 3px rgba(0, 0, 0, 0.6);
+    font-size: 1.3rem;
+    
+}
+.forgotPassBtn:hover{
+    color:rgb(236, 46, 46)
+    
+}

@@ -8,7 +8,7 @@ const Footer=()=>{
     return (
       <>
         <div className="footer">
-          <h1 className="footerHeading">The Generics</h1>
+          <h1 className="footerHeading">Generic</h1>
           <div className="ImageTags">
             <img className="iconimage" src={image1} alt="facebook" />
             <img className="iconimage" src={image2} alt="instagram" />

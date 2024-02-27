@@ -8,7 +8,7 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   let totAmount = 0;
-  const productsArr = Object.values(cartCtx.items); // Convert object to array
+  const productsArr = Object.values(cartCtx.items); 
 
   productsArr.forEach((item) => {
     totAmount += item.quantity * item.price;
@@ -24,11 +24,11 @@ const Cart = (props) => {
         <li key={item._id}>
           <span>{item.title}</span>
           <span>Rs {item.price}</span>
-          <span>Quantity: {item.quantity}</span>
+          <span>x {item.quantity}</span>
           <span>
             <Button
               variant="danger"
-              onClick={() => removeItemHandler(item._id)} // Pass itemId to removeItemHandler
+              onClick={() => removeItemHandler(item._id)} 
             >
               Remove
             </Button>

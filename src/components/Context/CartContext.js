@@ -24,6 +24,7 @@ export const Provider = (props) => {
   const [items, setItems] = useState({});
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
+  
   const useremail = authCtx.email.replace(/[.@]/g, "_");
 
   useEffect(() => {

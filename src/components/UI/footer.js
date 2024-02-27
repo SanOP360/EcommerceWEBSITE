@@ -2,7 +2,7 @@ import React from 'react'
 import './footer.css';
 import image1 from '../assets/facebookIcon.png';
 import image2 from '../assets/instagramIcon.png';
-import image3 from '../assets/youtubeIcon1.png';
+import image3 from '../assets/youtubeIcon.webp';
 
 const Footer=()=>{
     return (

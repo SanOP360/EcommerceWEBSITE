@@ -29,7 +29,7 @@ const Header = (props) => {
   return (
     <header className="bg-dark">
       <div className="container">
-        <span className="brandName">GENERIC</span>
+        <span className="brandName">NoteNexus</span>
         <nav className="navbar">
           <ul className="nav-list">
             {isLoggedIn && (
@@ -65,14 +65,16 @@ const Header = (props) => {
                 <button onClick={loginHandler}>Login</button>
               )}
             </div>
-           { isLoggedIn && <div className="nav-cart">
-              <button onClick={props.onShowCart} className="cartBtn">
-                <div className="CartBadge">
-                  <span className="CartName">Cart</span>
-                  <span className="badgeQuan">{totalQuantity}</span>
-                </div>
-              </button>
-            </div>}
+            {isLoggedIn && (
+              <div className="nav-cart">
+                <button onClick={props.onShowCart} className="cartBtn">
+                  <div className="CartBadge">
+                    <span className="CartName">Cart</span>
+                    <span className="badgeQuan">{totalQuantity}</span>
+                  </div>
+                </button>
+              </div>
+            )}
           </div>
         </nav>
       </div>

@@ -1,0 +1,159 @@
+.bg-dark {
+    background-color: #333;
+    display: flex;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.container {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brandName {
+    color: white;
+    font-size: 2.5rem;
+    flex: 1;
+}
+
+.navbar {
+    flex: 4;
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    margin: 0 20px;
+    list-style: none;
+    font-size: 1.5rem;
+    /* color: white; */
+    
+}
+.nav-item a{
+    text-decoration: none;
+}
+
+.cartBtn {
+    background-color:transparent;
+    color: white;
+    align-items: center;
+    border-radius: 5px;
+    padding: 6px 10px;
+    border:1px solid white;
+    font-weight: bold;
+    text-decoration: none; 
+    box-shadow: 0 3px 5px 3px rgba(128, 125, 125,45);
+    width: 5rem;
+}
+
+.cartBtn:hover {
+    background-color:rgb(44, 42, 42);
+    color: #ccc;
+    box-shadow: none;
+    box-shadow: 0 1px 3px 1px rgba(128, 125, 125,100);
+}
+
+
+ 
+.badgeQuan {
+    background-color: #333;
+    color: white;
+    padding: 1px 4px;
+    font-size: 1rem;
+    margin: 0 0.3rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.CartName {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.CartBadge {
+    display: flex;
+    align-items: center;
+}
+
+.active{
+     border-bottom:4px solid blue;
+}
+
+.loginLogout button{
+  font: inherit;
+  background-color: blue;
+  border: 1px solid white;
+  color: white;
+  font-weight: bold;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 3px 3px rgba(128, 125, 125,45);
+  width: 5rem;
+}
+
+.loginLogout button:hover{
+    background-color: rgba(0, 0, 255, 0.704);
+    color: #ccc;
+    box-shadow: none;
+}
+.manBtns{
+    display: flex;
+    gap:5rem;
+    flex:1;
+    
+    justify-content: flex-end;
+}
+
+
+@media  screen and (max-width: 1000px) {
+   .container{
+    display: flex;
+    flex-direction: column;
+   }
+   .brandName{
+    font-size: 2rem;
+   }
+
+   .navbar{
+        display: flex;
+        flex-direction: column;
+   }
+   .nav-list{
+    display: flex;
+    align-items:center;
+   }
+
+   .nav-item{
+      margin:0 10px;
+      font-size: 1.2rem;
+   }
+   .loginLogout button{
+    padding:5px 10px;
+
+   }
+   .cartBtn{
+     padding: 5px 10px;
+     border-radius: 5px;
+   }
+
+   .badgeQuan{
+    font-size: 1rem;
+    padding: 1px 4px;
+    margin:0 4px;
+   }
+
+   .CartName{
+    font-size: 1rem;
+   }
+   
+
+
+
+}

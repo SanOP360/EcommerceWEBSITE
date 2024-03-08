@@ -1,0 +1,96 @@
+/* About.css */
+
+/* Container styles */
+.about-container {
+  max-width: 800px; /* Adjust the max-width as per your design */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Heading styles */
+.about-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Image styles */
+.about-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Paragraph styles */
+.about-container p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .about-container {
+    padding: 10px;
+  }
+
+  .about-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-image {
+    margin-bottom: 10px;
+  }
+
+  .about-container p {
+    font-size: 0.9rem;
+  }
+}
+/* About.css */
+
+/* Container styles */
+.about-container {
+  max-width: 800px; /* Adjust the max-width as per your design */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Heading styles */
+.about-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Image styles */
+.about-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Paragraph styles */
+.about-container p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  .about-container {
+    padding: 10px;
+  }
+
+  .about-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-image {
+    margin-bottom: 10px;
+  }
+
+  .about-container p {
+    font-size: 0.9rem;
+  }
+}

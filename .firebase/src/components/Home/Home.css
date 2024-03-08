@@ -1,0 +1,103 @@
+.header{
+    width:100%;
+    height: auto;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:2% ;
+
+}
+
+.Brandheading{
+    font-size: 8rem;
+    font-weight: bold;   
+    padding:5px 8px;
+    color:white
+    
+}
+
+.ctaButton{
+    padding: 5rem;
+    font-size: 3rem;
+    padding: 0.7rem;
+    border:3px solid aqua;
+    color:white;
+    margin-bottom:2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    background-color: grey;
+}
+.ctaButton1{
+    background-color: grey;
+    border:none;
+}
+
+.tours{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+}
+.tourList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.tourItem{
+    list-style: none;
+    display: flex;
+    margin:5px;
+    border-bottom: 1px solid black;
+}
+.playBtn{
+    width: 5rem;
+    height:5rem;
+    background-color: grey;
+}
+
+.tourItem span{
+    flex:1;
+    align-items: center;
+    padding: 5px;
+    /* background-color: beige; */
+}
+.tourButton{   
+    
+    width: auto;
+    align-items: center;
+    /* background-color: bisque; */
+    
+    
+}
+.buyTicketsButton{
+
+    margin:0;
+    font-weight: bold;
+    background-color:aqua;
+    color:white;
+    border-radius: 5px;
+    border:1px solid aqua;
+    padding: 5px 8px;
+    
+}
+
+.buyTicketsButton:hover{
+    background-color: rgb(12, 103, 103);
+    color:whitesmoke
+}
+
+@media  screen and (max-width: 1000px){
+    .Brandheading{
+        font-size: 4rem;
+    }
+}
+
+@media  screen and (max-width: 500px){
+    .Brandheading{
+        font-size: 3rem;
+    }
+}
+

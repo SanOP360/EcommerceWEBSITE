@@ -1,0 +1,32 @@
+.footer{
+    background-color:black;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    margin:0;
+    padding: 0;
+    justify-content: space-between;
+    
+}
+
+.footerHeading{
+    color:white;
+    font-weight: bold;
+    font-size: 3rem;
+    flex:2;
+    text-align: center;
+    
+}
+.ImageTags{
+    flex:3;
+    text-align: center;
+
+}
+
+.iconimage{
+    width:3rem;
+    height: 3rem;
+    margin:0 2%;
+    cursor: pointer;
+}

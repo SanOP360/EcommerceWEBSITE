@@ -36,7 +36,7 @@ const Home = () => {
   return (
     <>
       <div className="header">
-        <h1 className="Brandheading">The Generics</h1>
+        <h1 className="Brandheading">NOTE NEXUS</h1>
         <button className="ctaButton">Get our Latest Albums</button>
         <button className="ctaButton1"><img className="playBtn" src={PlayIcon} alt="Play Button" /></button>
       </div>
